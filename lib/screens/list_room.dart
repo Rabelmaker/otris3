@@ -18,6 +18,13 @@ class _ListRoomState extends State<ListRoom> {
          IconButton(onPressed: (){}, icon: const Icon(Icons.history))
         ],
       ),
+      body: SafeArea(
+        child: ListView(
+          children: [
+
+          ],
+        )
+      ),
     );
   }
 }
