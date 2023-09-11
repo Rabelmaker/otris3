@@ -1,3 +1,4 @@
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 
 class ListRoom extends StatefulWidget {
@@ -14,9 +15,6 @@ class _ListRoomState extends State<ListRoom> {
       appBar: AppBar(
         backgroundColor: greenland,
         title: const Text("List Room"),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.history))
-        ],
       ),
       body: SafeArea(
           child: Stack(
@@ -52,8 +50,8 @@ class _ListRoomState extends State<ListRoom> {
                   flex: 1,
                   child: Row(
                     children: [
-                      _itemCard("loginbackground.png"),
-                      _itemCard("loginbackground.png")
+                      _itemCard("1.png", "OT Room 01", "Akbar Maulana"),
+                      _itemCard("2.png", "OT Room 02", "Randi Andrio")
                     ],
                   ),
                 ),
@@ -61,11 +59,27 @@ class _ListRoomState extends State<ListRoom> {
                   flex: 1,
                   child: Row(
                     children: [
-                      _itemCard("loginbackground.png"),
-                      _itemCard("loginbackground.png")
+                      _itemCard("3.png", "OT Room 03", "Ading Maulana"),
+                      _itemCard("4.png", "OT Room 04", "Arif Rahman")
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 32,
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 16,
+            right: 16,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                _itemMenu("settings.png"),
+                _itemMenu("user.png"),
+                _itemMenu("whatsapp.png"),
+                _itemMenu("info.png"),
               ],
             ),
           ),
@@ -74,23 +88,69 @@ class _ListRoomState extends State<ListRoom> {
     );
   }
 
-  Widget _itemCard(String gambar) {
+  Widget _itemCard(String gambar, String judul, String nama) {
     return Flexible(
         flex: 1,
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/$gambar"), fit: BoxFit.cover)),
-          child: InkWell(
-            onTap: () {},
-            child: Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              color: Colors.white.withOpacity(0.6),
+          child: Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            child: Stack(
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  height: double.infinity,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      "assets/$gambar",
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        judul,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 32,
+                            color: Colors.white),
+                      ),
+                      Text(
+                        nama,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 24,
+                            color: Colors.white),
+                      ),
+                      Text(
+                        formatDate(
+                            DateTime(2023, 09, 11), [d, '-', M, '-', yyyy]),
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ));
   }
+}
+
+Widget _itemMenu(String menu) {
+  return Padding(
+    padding: const EdgeInsets.all(16.0),
+    child: SizedBox(
+      height: 25,
+      width: 25,
+      child: Image.asset("assets/$menu"),
+    ),
+  );
 }
