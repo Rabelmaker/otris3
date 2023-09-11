@@ -134,7 +134,7 @@ class _DashboardState extends State<Dashboard> {
                                         width: 8,
                                       ),
                                       _itemPasien(parameter6, "AO",
-                                          "bloodpress.png", "60 bpm")
+                                          "bloodpress.png", "120/100 mmhg")
                                     ],
                                   ),
                                 ],
@@ -226,19 +226,17 @@ Widget _itemPasien(Color warna, String parameter, String gambar, String value) {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                    child: Text(
+                Text(
                   parameter,
                   style: TextStyle(color: Colors.white),
-                )),
-                Expanded(
-                    child: Text(
+                ),
+                Text(
                   value,
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold),
-                ))
+                ),
               ],
             )
           ],
