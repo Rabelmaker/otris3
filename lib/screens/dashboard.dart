@@ -28,7 +28,189 @@ class _DashboardState extends State<Dashboard> {
       appBar: AppBar(
         backgroundColor: greenland,
         title: const Text("Ruang OT 01"),
-        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+      ),
+      drawer: SafeArea(
+        child: Drawer(
+          child: Column(
+            children: [
+              SizedBox(
+                width: double.infinity,
+                height: 120,
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      "assets/drawer.png",
+                      fit: BoxFit.cover,
+                    ),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(18.0),
+                        child: Image.asset("assets/otriscontroller.png"),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                ),
+                child: SizedBox(
+                  height: 50,
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: const ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Color(0xffFF7F09))),
+                    onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 25,
+                          width: 25,
+                          child: Image.asset("assets/bulb.png"),
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Text("On/Off Semua Lampu")
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: SizedBox(
+                  height: 50,
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: const ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Color(0xff2196F3))),
+                    onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 25,
+                          width: 25,
+                          child: Image.asset("assets/door.png"),
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Text("Buka / Tutup Pintu")
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Divider(
+                  height: 30,
+                  thickness: 5,
+                  color: Colors.grey,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    Container(
+                        height: 30,
+                        width: 30,
+                        child: Image.asset("assets/drawer1.png")),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Text("Setting Lampu")
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    Container(
+                        height: 30,
+                        width: 30,
+                        child: Image.asset("assets/drawer2.png")),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Text("Setting Meja Operasi")
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    Container(
+                        height: 30,
+                        width: 30,
+                        child: Image.asset("assets/drawer3.png")),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Text("Input X-Ray")
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    Container(
+                        height: 30,
+                        width: 30,
+                        child: Image.asset("assets/drawer4.png")),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Text("Input Informasi Pasien")
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    Container(
+                        height: 30,
+                        width: 30,
+                        child: Image.asset("assets/drawer5.png")),
+                    SizedBox(
+                      width: 12,
+                    ),
+                    Text("Input Informasi Rekam Medis")
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -73,7 +255,7 @@ class _DashboardState extends State<Dashboard> {
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Flexible(
+                                      const Flexible(
                                         flex: 1,
                                         child: Text(
                                           "Timer Anestesi",
@@ -81,7 +263,7 @@ class _DashboardState extends State<Dashboard> {
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 16,
                                       ),
                                       Flexible(
@@ -91,10 +273,10 @@ class _DashboardState extends State<Dashboard> {
                                             height: double.infinity,
                                             duration: 1200,
                                             backgroundColor: backgroundRing,
-                                            fillColor: greenland,
+                                            fillColor: parameter1,
                                             ringColor: Colors.grey),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 16,
                                       ),
                                       Flexible(
@@ -103,12 +285,21 @@ class _DashboardState extends State<Dashboard> {
                                           height: double.infinity,
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                              color: Colors.black,
+                                              color: parameter7,
                                               borderRadius:
                                                   BorderRadius.circular(8)),
+                                          child: const Padding(
+                                            padding: EdgeInsets.all(5.0),
+                                            child: Text(
+                                              "Waktu Mulai : ",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12),
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 8,
                                       ),
                                       Flexible(
@@ -117,9 +308,18 @@ class _DashboardState extends State<Dashboard> {
                                           height: double.infinity,
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                              color: Colors.red,
+                                              color: parameter7,
                                               borderRadius:
                                                   BorderRadius.circular(8)),
+                                          child: const Padding(
+                                            padding: EdgeInsets.all(5.0),
+                                            child: Text(
+                                              "Waktu Sekarang : ",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -198,7 +398,7 @@ class _DashboardState extends State<Dashboard> {
                                   ),
                                   Flexible(
                                       flex: 1,
-                                      child: Container(
+                                      child: SizedBox(
                                         height: double.infinity,
                                         width: double.infinity,
                                         child: ElevatedButton(
@@ -550,8 +750,7 @@ Widget _itemMenu(String gambar, String menu, Color warna) {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-              height: 25, width: 25, child: Image.asset("assets/$gambar")),
+          SizedBox(height: 25, width: 25, child: Image.asset("assets/$gambar")),
           const SizedBox(
             height: 8,
           ),
