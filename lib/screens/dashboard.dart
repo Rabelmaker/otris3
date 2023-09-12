@@ -18,6 +18,8 @@ class _DashboardState extends State<Dashboard> {
     Color parameter4 = const Color(0xff177331);
     Color parameter5 = const Color(0xffFF7F09);
     Color parameter6 = const Color(0xffAD0404);
+    Color parameter7 = const Color(0xff2F6582);
+    Color parameter8 = const Color(0xff2A4CD2F);
 
     return Scaffold(
       backgroundColor: background,
@@ -167,18 +169,87 @@ class _DashboardState extends State<Dashboard> {
                           ],
                         ),
                         SizedBox(
-                          height: 255,
+                          height: 408,
                           width: double.infinity,
                           child: Card(
                             color: Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(25)),
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [],
-                                ),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      _itemAnastesi(parameter7, "Ppeak", "40"),
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      _itemAnastesi(parameter7, "Pmean", "16"),
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      _itemAnastesi(parameter7, "Pplat", "2")
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  Row(
+                                    children: [
+                                      _itemAnastesi(parameter7, "PEEP", "500"),
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      _itemAnastesi(parameter7, "Vte", "500"),
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      _itemAnastesi(parameter7, "Vti", "6.0")
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  Row(
+                                    children: [
+                                      _itemAnastesi(parameter7, "Mve", "6.0"),
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      _itemAnastesi(parameter8, "Mvi", "18"),
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      _itemAnastesi(parameter8, "PIF", "-60")
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  Row(
+                                    children: [
+                                      _itemAnastesi(parameter8, "PEF", "38"),
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      _itemAnastesi(parameter8, "Et", "2"),
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      _itemAnastesi(parameter8, "Fi", "12")
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  Row(
+                                    children: [
+                                      _itemAnastesi(parameter8, "awRR", "40"),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         )
@@ -222,26 +293,57 @@ Widget _itemPasien(Color warna, String parameter, String gambar, String value) {
               ),
             ),
             SizedBox(width: 8),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  parameter,
-                  style: TextStyle(color: Colors.white),
-                ),
-                Text(
-                  value,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    parameter,
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    value,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
             )
           ],
         ),
       ),
     ),
   );
+}
+
+Widget _itemAnastesi(Color warna, String parameter, String value) {
+  return Flexible(
+      flex: 1,
+      child: Container(
+        height: 70,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: warna,
+        ),
+        child: Expanded(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text(
+              parameter,
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+            Text(
+              value,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold),
+            )
+          ]),
+        ),
+      ));
 }
