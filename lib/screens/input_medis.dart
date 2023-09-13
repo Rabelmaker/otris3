@@ -1,0 +1,82 @@
+import 'package:flutter/material.dart';
+
+class InputMedis extends StatefulWidget {
+  const InputMedis({super.key});
+
+  @override
+  State<InputMedis> createState() => _InputMedisState();
+}
+
+class _InputMedisState extends State<InputMedis> {
+  Color greenland = const Color(0xff0E5F00);
+  TextEditingController pjController = TextEditingController();
+  TextEditingController diagnosaController = TextEditingController();
+  TextEditingController tindakanController = TextEditingController();
+  TextEditingController obatController = TextEditingController();
+  TextEditingController alergiController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: greenland,
+        title: const Text("Input Rekam Medis"),
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.arrow_back),
+        ),
+      ),
+      body: SafeArea(
+          child: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: ListView(
+          children: [
+            _itemForm(pjController, "Penanggung Jawab"),
+            _itemForm(diagnosaController, "Diagnosa"),
+            _itemForm(tindakanController, "Tindakan"),
+            _itemForm(obatController, "Obat"),
+            _itemForm(alergiController, "Alergi"),
+          ],
+        ),
+      )),
+    );
+  }
+}
+
+Widget _itemForm(TextEditingController formController, String judul) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        judul,
+        style: const TextStyle(
+          fontSize: 16,
+        ),
+      ),
+      const SizedBox(
+        height: 8,
+      ),
+      Container(
+        width: double.infinity,
+        height: 50,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(
+            color: Colors.grey,
+            width: 3.0,
+          ),
+          borderRadius: BorderRadius.circular(40.0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+          child: TextFormField(
+            maxLines: 1,
+            decoration: const InputDecoration(
+              border: InputBorder.none,
+            ),
+            controller: formController,
+          ),
+        ),
+      ),
+    ],
+  );
+}

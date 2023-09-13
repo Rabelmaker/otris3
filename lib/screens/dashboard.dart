@@ -121,93 +121,23 @@ class _DashboardState extends State<Dashboard> {
                   color: Colors.grey,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  children: [
-                    Container(
-                        height: 30,
-                        width: 30,
-                        child: Image.asset("assets/drawer1.png")),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text("Setting Lampu")
-                  ],
-                ),
-              ),
+              _itemDrawer("drawer1.png", "Setting Lampu"),
               SizedBox(
-                height: 8,
+                height: 16,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  children: [
-                    Container(
-                        height: 30,
-                        width: 30,
-                        child: Image.asset("assets/drawer2.png")),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text("Setting Meja Operasi")
-                  ],
-                ),
-              ),
+              _itemDrawer("drawer2.png", "Setting Meja Operasi"),
               SizedBox(
-                height: 8,
+                height: 16,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  children: [
-                    Container(
-                        height: 30,
-                        width: 30,
-                        child: Image.asset("assets/drawer3.png")),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text("Input X-Ray")
-                  ],
-                ),
-              ),
+              _itemDrawer("drawer3.png", "Input Meja Operasi"),
               SizedBox(
-                height: 8,
+                height: 16,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  children: [
-                    Container(
-                        height: 30,
-                        width: 30,
-                        child: Image.asset("assets/drawer4.png")),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text("Input Informasi Pasien")
-                  ],
-                ),
-              ),
+              _itemDrawer("drawer4.png", "Input Informasi Pasien"),
               SizedBox(
-                height: 8,
+                height: 16,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  children: [
-                    Container(
-                        height: 30,
-                        width: 30,
-                        child: Image.asset("assets/drawer5.png")),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text("Input Informasi Rekam Medis")
-                  ],
-                ),
-              ),
+              _itemDrawer("drawer5.png", "Input Informai Rekam Medis"),
             ],
           ),
         ),
@@ -765,6 +695,21 @@ Widget _itemMenu(String gambar, String menu, Color warna) {
           )
         ],
       ),
+    ),
+  );
+}
+
+Widget _itemDrawer(String gambar, String judul) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 16),
+    child: Row(
+      children: [
+        Container(height: 30, width: 30, child: Image.asset("assets/$gambar")),
+        SizedBox(
+          width: 12,
+        ),
+        Text(judul)
+      ],
     ),
   );
 }

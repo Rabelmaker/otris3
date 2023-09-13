@@ -1,23 +1,32 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
-class SettingMeja extends StatefulWidget {
-  const SettingMeja({super.key});
+class SettingLampu extends StatefulWidget {
+  const SettingLampu({super.key});
 
   @override
-  State<SettingMeja> createState() => _SettingMejaState();
+  State<SettingLampu> createState() => _SettingLampuState();
 }
 
-class _SettingMejaState extends State<SettingMeja> {
+class _SettingLampuState extends State<SettingLampu> {
   @override
   Widget build(BuildContext context) {
     Color greenland = const Color(0xff0E5F00);
     Color background = const Color(0xffEDEDED);
+    Color buttonColor1 = const Color(0xffE9E9E9);
+    Color buttonColor2 = const Color(0xffE9E9E9);
+    Color buttonColor3 = const Color(0xffE9E9E9);
+    Color buttonColor4 = const Color(0xffE9E9E9);
+    Color greybutton = const Color(0xffE9E9E9);
+    Color lampOn = Colors.amber;
+    double elevated = 0;
 
     return Scaffold(
       backgroundColor: background,
       appBar: AppBar(
         backgroundColor: greenland,
-        title: const Text("Setting Meja Operasi"),
+        title: const Text("Setting Lampu Operasi"),
         leading: IconButton(
           onPressed: () {},
           icon: const Icon(Icons.arrow_back),
@@ -36,7 +45,7 @@ class _SettingMejaState extends State<SettingMeja> {
                       width: double.infinity,
                       color: Colors.amber,
                       child: Image.asset(
-                        "assets/otris1.jpg",
+                        "assets/otris2.jpg",
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -77,8 +86,15 @@ class _SettingMejaState extends State<SettingMeja> {
                             flex: 1,
                             child: Row(
                               children: [
-                                _itemSetting("UP", "up.png"),
-                                _itemSetting("DOWN", "down.png"),
+                                _itemSetting(
+                                  "LAMPU 1",
+                                  "bulb.png",
+                                  lampOn,
+                                  elevated,
+                                  () {},
+                                ),
+                                _itemSetting("LAMPU 2", "bulb.png", lampOn,
+                                    elevated, () {}),
                               ],
                             ),
                           ),
@@ -86,8 +102,15 @@ class _SettingMejaState extends State<SettingMeja> {
                             flex: 1,
                             child: Row(
                               children: [
-                                _itemSetting("BACK UP", "backup.png"),
-                                _itemSetting("BACKDOWN", "backdown.png"),
+                                _itemSetting(
+                                  "LAMPU 3",
+                                  "bulb.png",
+                                  lampOn,
+                                  elevated,
+                                  () {},
+                                ),
+                                _itemSetting("LAMPU 4", "bulb.png", lampOn,
+                                    elevated, () {}),
                               ],
                             ),
                           ),
@@ -95,17 +118,13 @@ class _SettingMejaState extends State<SettingMeja> {
                             flex: 1,
                             child: Row(
                               children: [
-                                _itemSetting("TREND", "trend.png"),
-                                _itemSetting("REV", "rev.png"),
-                              ],
-                            ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: Row(
-                              children: [
-                                _itemSetting("TILTR", "tiltr.png"),
-                                _itemSetting("TILTL", "tiltl.png"),
+                                _itemSetting(
+                                  "SEMUA LAMPU",
+                                  "bulb.png",
+                                  lampOn,
+                                  elevated,
+                                  () {},
+                                ),
                               ],
                             ),
                           )
@@ -121,33 +140,37 @@ class _SettingMejaState extends State<SettingMeja> {
   }
 }
 
-Widget _itemSetting(String judul, String gambar) {
-  Color greenland = const Color(0xff0E5F00);
+Widget _itemSetting(String judul, String gambar, Color buttonColor,
+    double elevation, Function() onTap) {
   return Flexible(
       flex: 1,
       child: SizedBox(
         height: double.infinity,
         width: double.infinity,
-        child: Card(
-          color: greenland,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  judul,
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                SizedBox(width: 70, child: Image.asset("assets/$gambar")),
-              ]),
+        child: GestureDetector(
+          onTap: onTap,
+          child: Card(
+            color: buttonColor,
+            elevation: elevation,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    judul,
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  SizedBox(width: 70, child: Image.asset("assets/$gambar")),
+                ]),
+          ),
         ),
       ));
 }
