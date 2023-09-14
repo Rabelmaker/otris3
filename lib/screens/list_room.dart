@@ -1,5 +1,6 @@
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ListRoom extends StatefulWidget {
   const ListRoom({super.key});
@@ -91,53 +92,69 @@ class _ListRoomState extends State<ListRoom> {
   Widget _itemCard(String gambar, String judul, String nama) {
     return Flexible(
         flex: 1,
-        child: SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-          child: Card(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            child: Stack(
-              children: [
-                SizedBox(
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      "assets/$gambar",
-                      fit: BoxFit.cover,
+        child: InkWell(
+          onTap: () {
+            if (judul == "OT Room 01") {
+              context.goNamed('dashboard');
+            }
+            if (judul == "OT Room 02") {
+              context.goNamed('dashboard');
+            }
+            if (judul == "OT Room 03") {
+              context.goNamed('dashboard');
+            }
+            if (judul == "OT Room 04") {
+              context.goNamed('dashboard');
+            }
+          },
+          child: SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: Stack(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        "assets/$gambar",
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        judul,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 32,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        nama,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 24,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        formatDate(
-                            DateTime(2023, 09, 11), [d, '-', M, '-', yyyy]),
-                        style: TextStyle(color: Colors.white),
-                      )
-                    ],
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          judul,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 32,
+                              color: Colors.white),
+                        ),
+                        Text(
+                          nama,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 24,
+                              color: Colors.white),
+                        ),
+                        Text(
+                          formatDate(
+                              DateTime(2023, 09, 11), [d, '-', M, '-', yyyy]),
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ));

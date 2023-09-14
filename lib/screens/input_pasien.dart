@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class InputMedis extends StatefulWidget {
-  const InputMedis({super.key});
+class InputPasien extends StatefulWidget {
+  const InputPasien({super.key});
 
   @override
-  State<InputMedis> createState() => _InputMedisState();
+  State<InputPasien> createState() => _InputPasienState();
 }
 
-class _InputMedisState extends State<InputMedis> {
+class _InputPasienState extends State<InputPasien> {
   Color greenland = const Color(0xff0E5F00);
   Color buttonColor = const Color(0xff18A900);
-  TextEditingController pjController = TextEditingController();
-  TextEditingController diagnosaController = TextEditingController();
-  TextEditingController tindakanController = TextEditingController();
-  TextEditingController obatController = TextEditingController();
-  TextEditingController alergiController = TextEditingController();
+  TextEditingController namaController = TextEditingController();
+  TextEditingController alamatController = TextEditingController();
+  TextEditingController tempatController = TextEditingController();
+  TextEditingController tanggalController = TextEditingController();
+  TextEditingController umurController = TextEditingController();
+  TextEditingController nikController = TextEditingController();
+  TextEditingController bpjsController = TextEditingController();
+  TextEditingController hpController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: greenland,
-        title: const Text("Input Rekam Medis"),
+        title: const Text("Input Informasi Pasien"),
         leading: IconButton(
           onPressed: () => context.goNamed("dashboard"),
           icon: const Icon(Icons.arrow_back),
@@ -32,20 +36,34 @@ class _InputMedisState extends State<InputMedis> {
         padding: const EdgeInsets.all(32.0),
         child: ListView(
           children: [
-            _itemText(pjController, "Penanggung Jawab"),
+            _itemText(namaController, "Nama", TextInputType.name),
+            SizedBox(
+              height: 16,
+            ),
+            _itemTextArea(alamatController, "Alamat"),
             SizedBox(
               height: 16,
             ),
             Row(
               children: [
                 Flexible(
-                    flex: 1,
-                    child: _itemTextArea(diagnosaController, "Diagnosa")),
+                    flex: 3,
+                    child: _itemText(tempatController, "Tempat Lahir",
+                        TextInputType.streetAddress)),
                 SizedBox(
                   width: 16,
                 ),
                 Flexible(
-                    flex: 1, child: _itemTextArea(alergiController, "Alergi")),
+                    flex: 2,
+                    child: _itemText(
+                        tanggalController, "Tanggal", TextInputType.datetime)),
+                SizedBox(
+                  width: 16,
+                ),
+                Flexible(
+                    flex: 1,
+                    child: _itemText(
+                        umurController, "Umur", TextInputType.number)),
               ],
             ),
             SizedBox(
@@ -55,12 +73,33 @@ class _InputMedisState extends State<InputMedis> {
               children: [
                 Flexible(
                   flex: 1,
-                  child: _itemTextArea(tindakanController, "Tindakan"),
+                  child: _itemText(nikController, "NIK", TextInputType.number),
                 ),
                 SizedBox(
                   width: 16,
                 ),
-                Flexible(flex: 1, child: _itemTextArea(obatController, "Obat")),
+                Flexible(
+                    flex: 1,
+                    child: _itemText(
+                        bpjsController, "BPJS", TextInputType.number)),
+              ],
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            Row(
+              children: [
+                Flexible(
+                  flex: 1,
+                  child: _itemText(hpController, "No. Hp", TextInputType.phone),
+                ),
+                SizedBox(
+                  width: 16,
+                ),
+                Flexible(
+                    flex: 1,
+                    child: _itemText(
+                        emailController, "Email", TextInputType.emailAddress)),
               ],
             ),
             SizedBox(
@@ -81,7 +120,8 @@ class _InputMedisState extends State<InputMedis> {
   }
 }
 
-Widget _itemText(TextEditingController formController, String judul) {
+Widget _itemText(TextEditingController formController, String judul,
+    TextInputType keyboardType) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -108,6 +148,7 @@ Widget _itemText(TextEditingController formController, String judul) {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: TextFormField(
+            keyboardType: keyboardType,
             maxLines: 1,
             decoration: const InputDecoration(
               border: InputBorder.none,

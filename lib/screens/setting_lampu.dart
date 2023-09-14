@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingLampu extends StatefulWidget {
   const SettingLampu({super.key});
@@ -28,7 +29,7 @@ class _SettingLampuState extends State<SettingLampu> {
         backgroundColor: greenland,
         title: const Text("Setting Lampu Operasi"),
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () => context.goNamed("dashboard"),
           icon: const Icon(Icons.arrow_back),
         ),
       ),

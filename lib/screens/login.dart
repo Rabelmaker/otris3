@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -170,7 +171,7 @@ class _LoginState extends State<Login> {
                           width: 650,
                           height: 50,
                           child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () => context.goNamed('list_room'),
                               style: ButtonStyle(
                                 backgroundColor:
                                     MaterialStateProperty.all<Color>(greenland),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingMeja extends StatefulWidget {
   const SettingMeja({super.key});
@@ -19,7 +20,7 @@ class _SettingMejaState extends State<SettingMeja> {
         backgroundColor: greenland,
         title: const Text("Setting Meja Operasi"),
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () => context.goNamed("dashboard"),
           icon: const Icon(Icons.arrow_back),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -121,23 +122,23 @@ class _DashboardState extends State<Dashboard> {
                   color: Colors.grey,
                 ),
               ),
-              _itemDrawer("drawer1.png", "Setting Lampu"),
+              _itemDrawer("drawer1.png", "Setting Lampu", context),
               SizedBox(
                 height: 16,
               ),
-              _itemDrawer("drawer2.png", "Setting Meja Operasi"),
+              _itemDrawer("drawer2.png", "Setting Meja Operasi", context),
               SizedBox(
                 height: 16,
               ),
-              _itemDrawer("drawer3.png", "Input Meja Operasi"),
+              _itemDrawer("drawer4.png", "Input X-ray", context),
               SizedBox(
                 height: 16,
               ),
-              _itemDrawer("drawer4.png", "Input Informasi Pasien"),
+              _itemDrawer("drawer3.png", "Input Informasi Pasien", context),
               SizedBox(
                 height: 16,
               ),
-              _itemDrawer("drawer5.png", "Input Informai Rekam Medis"),
+              _itemDrawer("drawer5.png", "Input Rekam Medis", context),
             ],
           ),
         ),
@@ -699,17 +700,37 @@ Widget _itemMenu(String gambar, String menu, Color warna) {
   );
 }
 
-Widget _itemDrawer(String gambar, String judul) {
+Widget _itemDrawer(String gambar, String judul, BuildContext context) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 16),
-    child: Row(
-      children: [
-        Container(height: 30, width: 30, child: Image.asset("assets/$gambar")),
-        SizedBox(
-          width: 12,
-        ),
-        Text(judul)
-      ],
+    child: InkWell(
+      onTap: () {
+        if (judul == "Setting Lampu") {
+          context.goNamed("setting_lampu");
+        }
+        if (judul == "Setting Lampu") {
+          context.goNamed("setting_lampu");
+        }
+        if (judul == "Setting Meja Operasi") {
+          context.goNamed("setting_meja");
+        }
+        if (judul == "Input Informasi Pasien") {
+          context.goNamed("input_pasien");
+        }
+        if (judul == "Input Rekam Medis") {
+          context.goNamed("input_medis");
+        }
+      },
+      child: Row(
+        children: [
+          Container(
+              height: 30, width: 30, child: Image.asset("assets/$gambar")),
+          SizedBox(
+            width: 12,
+          ),
+          Text(judul)
+        ],
+      ),
     ),
   );
 }
