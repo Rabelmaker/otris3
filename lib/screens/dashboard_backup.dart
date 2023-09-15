@@ -13,10 +13,7 @@ class _DashboardState extends State<Dashboard> {
     Color greenland = const Color(0xff0E5F00);
     Color background = const Color(0xffEDEDED);
     Color parameter1 = const Color(0xff18A900);
-    Color parameter2 = const Color(0xff173BBD);
-    Color parameter4 = const Color(0xff3E6D77);
-    Color parameter5 = const Color(0xffFF7F09);
-    Color parameter6 = const Color(0xffAD0404);
+
 
     return Scaffold(
       backgroundColor: background,

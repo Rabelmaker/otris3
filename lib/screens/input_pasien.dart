@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
 
 class InputPasien extends StatefulWidget {
   const InputPasien({super.key});
@@ -26,10 +26,6 @@ class _InputPasienState extends State<InputPasien> {
       appBar: AppBar(
         backgroundColor: greenland,
         title: const Text("Input Informasi Pasien"),
-        leading: IconButton(
-          onPressed: () => context.goNamed("dashboard"),
-          icon: const Icon(Icons.arrow_back),
-        ),
       ),
       body: SafeArea(
           child: Padding(
@@ -37,11 +33,11 @@ class _InputPasienState extends State<InputPasien> {
         child: ListView(
           children: [
             _itemText(namaController, "Nama", TextInputType.name),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             _itemTextArea(alamatController, "Alamat"),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Row(
@@ -50,14 +46,14 @@ class _InputPasienState extends State<InputPasien> {
                     flex: 3,
                     child: _itemText(tempatController, "Tempat Lahir",
                         TextInputType.streetAddress)),
-                SizedBox(
+                const SizedBox(
                   width: 16,
                 ),
                 Flexible(
                     flex: 2,
                     child: _itemText(
                         tanggalController, "Tanggal", TextInputType.datetime)),
-                SizedBox(
+                const SizedBox(
                   width: 16,
                 ),
                 Flexible(
@@ -66,7 +62,7 @@ class _InputPasienState extends State<InputPasien> {
                         umurController, "Umur", TextInputType.number)),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Row(
@@ -75,7 +71,7 @@ class _InputPasienState extends State<InputPasien> {
                   flex: 1,
                   child: _itemText(nikController, "NIK", TextInputType.number),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 16,
                 ),
                 Flexible(
@@ -84,7 +80,7 @@ class _InputPasienState extends State<InputPasien> {
                         bpjsController, "BPJS", TextInputType.number)),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Row(
@@ -93,7 +89,7 @@ class _InputPasienState extends State<InputPasien> {
                   flex: 1,
                   child: _itemText(hpController, "No. Hp", TextInputType.phone),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 16,
                 ),
                 Flexible(
@@ -102,13 +98,14 @@ class _InputPasienState extends State<InputPasien> {
                         emailController, "Email", TextInputType.emailAddress)),
               ],
             ),
-            SizedBox(
-              height: 16,
+            const SizedBox(
+              height: 32,
             ),
             Container(
+              height: 40,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text("Upload"),
+                child: const Text("Upload"),
                 style: ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(buttonColor)),
               ),

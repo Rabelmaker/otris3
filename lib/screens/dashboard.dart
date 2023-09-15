@@ -720,6 +720,9 @@ Widget _itemDrawer(String gambar, String judul, BuildContext context) {
         if (judul == "Input Rekam Medis") {
           context.goNamed("input_medis");
         }
+        if (judul == "Input X-ray") {
+          context.goNamed("input_xray");
+        }
       },
       child: Row(
         children: [

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
 
 class InputMedis extends StatefulWidget {
   const InputMedis({super.key});
@@ -22,10 +22,6 @@ class _InputMedisState extends State<InputMedis> {
       appBar: AppBar(
         backgroundColor: greenland,
         title: const Text("Input Rekam Medis"),
-        leading: IconButton(
-          onPressed: () => context.goNamed("dashboard"),
-          icon: const Icon(Icons.arrow_back),
-        ),
       ),
       body: SafeArea(
           child: Padding(
@@ -64,9 +60,10 @@ class _InputMedisState extends State<InputMedis> {
               ],
             ),
             SizedBox(
-              height: 16,
+              height: 32,
             ),
             Container(
+              height: 40,
               child: ElevatedButton(
                 onPressed: () {},
                 child: Text("Upload"),

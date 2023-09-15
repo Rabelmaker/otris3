@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,11 +13,6 @@ class _SettingLampuState extends State<SettingLampu> {
   Widget build(BuildContext context) {
     Color greenland = const Color(0xff0E5F00);
     Color background = const Color(0xffEDEDED);
-    Color buttonColor1 = const Color(0xffE9E9E9);
-    Color buttonColor2 = const Color(0xffE9E9E9);
-    Color buttonColor3 = const Color(0xffE9E9E9);
-    Color buttonColor4 = const Color(0xffE9E9E9);
-    Color greybutton = const Color(0xffE9E9E9);
     Color lampOn = Colors.amber;
     double elevated = 0;
 
@@ -28,10 +21,6 @@ class _SettingLampuState extends State<SettingLampu> {
       appBar: AppBar(
         backgroundColor: greenland,
         title: const Text("Setting Lampu Operasi"),
-        leading: IconButton(
-          onPressed: () => context.goNamed("dashboard"),
-          icon: const Icon(Icons.arrow_back),
-        ),
       ),
       body: SafeArea(
         child: Center(

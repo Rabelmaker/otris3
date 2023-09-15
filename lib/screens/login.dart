@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 class Login extends StatefulWidget {
@@ -8,7 +9,14 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 
+
 class _LoginState extends State<Login> {
+  @override
+  void initState() {
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     Color greenland = const Color(0xff0E5F00);
