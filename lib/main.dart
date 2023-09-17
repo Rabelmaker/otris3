@@ -8,6 +8,7 @@ import 'package:otris2/screens/list_room.dart';
 import 'package:otris2/screens/login.dart';
 import 'package:otris2/screens/setting_lampu.dart';
 import 'package:otris2/screens/setting_meja.dart';
+import 'package:otris2/screens/view_pasien.dart';
 
 void main() {
 
@@ -65,6 +66,12 @@ final GoRouter _router = GoRouter(
                 name: 'input_xray',
                 builder: (BuildContext context, GoRouterState state) {
                   return const InputXray();
+                }),
+            GoRoute(
+                path: 'view_pasien',
+                name: 'view_pasien',
+                builder: (BuildContext context, GoRouterState state) {
+                  return const ViewPasien();
                 }),
           ],
         )

@@ -34,111 +34,87 @@ class _DashboardState extends State<Dashboard> {
         child: Drawer(
           child: Column(
             children: [
-              SizedBox(
-                width: double.infinity,
-                height: 120,
-                child: Stack(
-                  children: [
-                    Image.asset(
-                      "assets/drawer.png",
-                      fit: BoxFit.cover,
-                    ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: Image.asset("assets/otriscontroller.png"),
+              Flexible(
+                flex: 1,
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 120,
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        "assets/drawer.png",
+                        fit: BoxFit.cover,
                       ),
-                    )
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(18.0),
+                          child: SizedBox(
+                            height: double.infinity,
+                              width: double.infinity,
+                              child: Image.asset("assets/otriscontroller.png")),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Flexible(
+                flex: 4,
+                child: ListView(
+                  children: [
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    _tombolDrawer(
+                        Colors.blue, "assets/white-board.png", "On/Off Smartboard"),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    _tombolDrawer(Colors.lime.shade600, "assets/savings-box.png",
+                        "On/Off Pass Box"),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    _tombolDrawer(parameter1,
+                        "assets/door.png", "On/Off Pintu Besar"),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    _tombolDrawer(parameter3,
+                        "assets/door.png", "On/Off Pintu Kecil"),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    _tombolDrawer(parameter5,
+                        "assets/energy.png", "On/Off Power Supply"),
+                    const Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Divider(
+                        height: 30,
+                        thickness: 5,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    _itemDrawer("drawer1.png", "Setting Lampu", context),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    _itemDrawer("drawer2.png", "Setting Meja Operasi", context),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    _itemDrawer("drawer4.png", "Input X-ray", context),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    _itemDrawer("drawer3.png", "Input Informasi Pasien", context),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    _itemDrawer("drawer5.png", "Input Rekam Medis", context),
                   ],
                 ),
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                ),
-                child: SizedBox(
-                  height: 50,
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Color(0xffFF7F09))),
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: 25,
-                          width: 25,
-                          child: Image.asset("assets/bulb.png"),
-                        ),
-                        const SizedBox(
-                          width: 8,
-                        ),
-                        const Text("On/Off Semua Lampu")
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: SizedBox(
-                  height: 50,
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll(Color(0xff2196F3))),
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: 25,
-                          width: 25,
-                          child: Image.asset("assets/door.png"),
-                        ),
-                        const SizedBox(
-                          width: 8,
-                        ),
-                        const Text("Buka / Tutup Pintu")
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Divider(
-                  height: 30,
-                  thickness: 5,
-                  color: Colors.grey,
-                ),
-              ),
-              _itemDrawer("drawer1.png", "Setting Lampu", context),
-              SizedBox(
-                height: 16,
-              ),
-              _itemDrawer("drawer2.png", "Setting Meja Operasi", context),
-              SizedBox(
-                height: 16,
-              ),
-              _itemDrawer("drawer4.png", "Input X-ray", context),
-              SizedBox(
-                height: 16,
-              ),
-              _itemDrawer("drawer3.png", "Input Informasi Pasien", context),
-              SizedBox(
-                height: 16,
-              ),
-              _itemDrawer("drawer5.png", "Input Rekam Medis", context),
+              )
             ],
           ),
         ),
@@ -305,22 +281,23 @@ class _DashboardState extends State<Dashboard> {
                                     child: Row(
                                       children: [
                                         _itemMenu("xray.png", "X-ray Viewer",
-                                            greenland),
+                                            greenland, context),
                                         const SizedBox(
                                           width: 16,
                                         ),
-                                        _itemMenu("informasipasien.png",
-                                            "Informasi Pasien", greenland),
+                                        _itemMenu(
+                                            "informasipasien.png",
+                                            "Informasi Pasien",
+                                            greenland,
+                                            context),
                                         const SizedBox(
                                           width: 16,
                                         ),
-                                        _itemMenu("rekammedis.png",
-                                            "Rekam Medis", greenland),
-                                        const SizedBox(
-                                          width: 16,
-                                        ),
-                                        _itemMenu("camera.png",
-                                            "Teleconference", greenland),
+                                        _itemMenu(
+                                            "camera.png",
+                                            "Teleconference",
+                                            greenland,
+                                            context),
                                       ],
                                     ),
                                   ),
@@ -670,31 +647,49 @@ Widget _itemAnastesi(Color warna, String parameter, String value) {
       ));
 }
 
-Widget _itemMenu(String gambar, String menu, Color warna) {
+Widget _itemMenu(
+    String gambar, String menu, Color warna, BuildContext context) {
   return Flexible(
     flex: 1,
-    child: Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.circular(8), color: warna),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(height: 25, width: 25, child: Image.asset("assets/$gambar")),
-          const SizedBox(
-            height: 8,
-          ),
-          Text(
-            menu,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 12,
+    child: InkWell(
+      onTap: () {
+        if (menu == "X-ray Viewer") {
+          context.goNamed("view_xray");
+        }
+        if (menu == "Informasi Pasien") {
+          context.goNamed("view_pasien");
+        }
+        if (menu == "Rekam Medis") {
+          context.goNamed("view_medis");
+        }
+        if (menu == "Teleconference") {
+          context.goNamed("view_teleconference");
+        }
+      },
+      child: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration:
+            BoxDecoration(borderRadius: BorderRadius.circular(8), color: warna),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+                height: 25, width: 25, child: Image.asset("assets/$gambar")),
+            const SizedBox(
+              height: 8,
             ),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          )
-        ],
+            Text(
+              menu,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 12,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            )
+          ],
+        ),
       ),
     ),
   );
@@ -728,11 +723,47 @@ Widget _itemDrawer(String gambar, String judul, BuildContext context) {
         children: [
           Container(
               height: 30, width: 30, child: Image.asset("assets/$gambar")),
-          SizedBox(
+          const SizedBox(
             width: 12,
           ),
           Text(judul)
         ],
+      ),
+    ),
+  );
+}
+
+Widget _tombolDrawer(Color warna, String icon, String judul) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(
+      horizontal: 16,
+    ),
+    child: SizedBox(
+      height: 50,
+      width: double.infinity,
+      child: ElevatedButton(
+        style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(warna)),
+        onPressed: () {},
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 20,
+              width: 20,
+              child: Image.asset(icon),
+            ),
+            const SizedBox(
+              width: 8,
+            ),
+            Text(
+              judul,
+              maxLines: 2,
+              style: TextStyle(
+                  fontSize: 14
+              ),
+            )
+          ],
+        ),
       ),
     ),
   );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class SettingLampu extends StatefulWidget {
   const SettingLampu({super.key});
@@ -14,7 +13,6 @@ class _SettingLampuState extends State<SettingLampu> {
     Color greenland = const Color(0xff0E5F00);
     Color background = const Color(0xffEDEDED);
     Color lampOn = Colors.amber;
-    double elevated = 0;
 
     return Scaffold(
       backgroundColor: background,
@@ -80,28 +78,20 @@ class _SettingLampuState extends State<SettingLampu> {
                                   "LAMPU 1",
                                   "bulb.png",
                                   lampOn,
-                                  elevated,
-                                  () {},
+
                                 ),
-                                _itemSetting("LAMPU 2", "bulb.png", lampOn,
-                                    elevated, () {}),
+                                _itemSetting(
+                                    "LAMPU 2", "bulb.png", lampOn),
                               ],
                             ),
                           ),
                           Flexible(
                             flex: 1,
-                            child: Row(
-                              children: [
-                                _itemSetting(
-                                  "LAMPU 3",
-                                  "bulb.png",
-                                  lampOn,
-                                  elevated,
-                                  () {},
-                                ),
-                                _itemSetting("LAMPU 4", "bulb.png", lampOn,
-                                    elevated, () {}),
-                              ],
+                            child: _itemSetting(
+                              "Lampu OT",
+                              "bulb.png",
+                              lampOn,
+
                             ),
                           ),
                           Flexible(
@@ -112,8 +102,7 @@ class _SettingLampuState extends State<SettingLampu> {
                                   "SEMUA LAMPU",
                                   "bulb.png",
                                   lampOn,
-                                  elevated,
-                                  () {},
+
                                 ),
                               ],
                             ),
@@ -130,18 +119,17 @@ class _SettingLampuState extends State<SettingLampu> {
   }
 }
 
-Widget _itemSetting(String judul, String gambar, Color buttonColor,
-    double elevation, Function() onTap) {
+Widget _itemSetting(
+    String judul, String gambar, Color buttonColor) {
   return Flexible(
       flex: 1,
       child: SizedBox(
         height: double.infinity,
         width: double.infinity,
-        child: GestureDetector(
-          onTap: onTap,
+        child: InkWell(
+          onTap: () {},
           child: Card(
             color: buttonColor,
-            elevation: elevation,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             child: Column(
