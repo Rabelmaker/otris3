@@ -9,6 +9,7 @@ import 'package:otris2/screens/login.dart';
 import 'package:otris2/screens/setting_lampu.dart';
 import 'package:otris2/screens/setting_meja.dart';
 import 'package:otris2/screens/view_pasien.dart';
+import 'package:otris2/screens/view_profile.dart';
 
 void main() {
 
@@ -30,6 +31,14 @@ final GoRouter _router = GoRouter(
         return const ListRoom();
       },
       routes: <RouteBase>[
+        GoRoute(
+          path: 'profile',
+          name: 'profile',
+          builder: (BuildContext context, GoRouterState state) {
+            return const ViewProfile();
+          },
+
+        ),
         GoRoute(
           path: 'dashboard',
           name: 'dashboard',
@@ -77,6 +86,7 @@ final GoRouter _router = GoRouter(
         )
       ],
     ),
+
   ],
 );
 

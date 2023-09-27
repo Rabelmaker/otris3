@@ -11,6 +11,7 @@ class ListRoom extends StatefulWidget {
 
 class _ListRoomState extends State<ListRoom> {
   Color greenland = const Color(0xff0E5F00);
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -77,10 +78,10 @@ class _ListRoomState extends State<ListRoom> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                _itemMenu("settings.png"),
-                _itemMenu("user.png"),
-                _itemMenu("whatsapp.png"),
-                _itemMenu("info.png"),
+                _itemMenu("settings.png", context),
+                _itemMenu("user.png", context),
+                _itemMenu("whatsapp.png", context),
+                _itemMenu("info.png", context),
               ],
             ),
           ),
@@ -161,13 +162,29 @@ class _ListRoomState extends State<ListRoom> {
   }
 }
 
-Widget _itemMenu(String menu) {
+Widget _itemMenu(String menu, BuildContext context) {
   return Padding(
     padding: const EdgeInsets.all(16.0),
-    child: SizedBox(
-      height: 25,
-      width: 25,
-      child: Image.asset("assets/$menu"),
+    child: InkWell(
+      onTap: () {
+        if (menu == "settings.png") {
+          context.goNamed('profile');
+        }
+        if (menu == "whatsapp.png") {
+          context.goNamed('profile');
+        }
+        if (menu == "user.png") {
+          context.goNamed('profile');
+        }
+        if (menu == "info.png") {
+          context.goNamed('profile');
+        }
+      },
+      child: SizedBox(
+        height: 25,
+        width: 25,
+        child: Image.asset("assets/$menu"),
+      ),
     ),
   );
 }

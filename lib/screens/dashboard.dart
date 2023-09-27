@@ -66,27 +66,27 @@ class _DashboardState extends State<Dashboard> {
                       height: 16,
                     ),
                     _tombolDrawer(
-                        Colors.blue, "assets/white-board.png", "On/Off Smartboard"),
+                        Colors.blue, Icons.tv_rounded, "On/Off Smartboard"),
                     const SizedBox(
                       height: 16,
                     ),
-                    _tombolDrawer(Colors.lime.shade600, "assets/savings-box.png",
+                    _tombolDrawer(Colors.lime.shade600, Icons.light_rounded,
                         "On/Off Pass Box"),
                     const SizedBox(
                       height: 16,
                     ),
                     _tombolDrawer(parameter1,
-                        "assets/door.png", "On/Off Pintu Besar"),
+                        Icons.door_front_door, "On/Off Pintu Besar"),
                     const SizedBox(
                       height: 16,
                     ),
                     _tombolDrawer(parameter3,
-                        "assets/door.png", "On/Off Pintu Kecil"),
+                        Icons.door_back_door_rounded, "On/Off Pintu Kecil"),
                     const SizedBox(
                       height: 16,
                     ),
                     _tombolDrawer(parameter5,
-                        "assets/energy.png", "On/Off Power Supply"),
+                        Icons.bolt_rounded, "On/Off Power Supply"),
                     const Padding(
                       padding: EdgeInsets.all(16.0),
                       child: Divider(
@@ -733,24 +733,32 @@ Widget _itemDrawer(String gambar, String judul, BuildContext context) {
   );
 }
 
-Widget _tombolDrawer(Color warna, String icon, String judul) {
+Widget _tombolDrawer(Color warna, IconData icon, String judul) {
   return Padding(
     padding: const EdgeInsets.symmetric(
       horizontal: 16,
     ),
-    child: SizedBox(
-      height: 50,
-      width: double.infinity,
-      child: ElevatedButton(
-        style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(warna)),
-        onPressed: () {},
+    child: InkWell(
+      onTap: (){},
+      
+      child: Container(
+        height: 50,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.grey.shade200,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+              color: Colors.green,
+            width: 2
+          ),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
               height: 20,
               width: 20,
-              child: Image.asset(icon),
+              child: Icon(icon,color: warna,),
             ),
             const SizedBox(
               width: 8,
@@ -759,6 +767,7 @@ Widget _tombolDrawer(Color warna, String icon, String judul) {
               judul,
               maxLines: 2,
               style: TextStyle(
+                color: Colors.grey.shade700,
                   fontSize: 14
               ),
             )
