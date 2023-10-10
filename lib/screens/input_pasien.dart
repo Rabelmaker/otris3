@@ -25,18 +25,18 @@ class _InputPasienState extends State<InputPasien> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: greenland,
-        title: const Text("Input Informasi Pasien"),
+        title: const Text("Input Patient Information"),
       ),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(32.0),
         child: ListView(
           children: [
-            _itemText(namaController, "Nama", TextInputType.name),
+            _itemText(namaController, "Name", TextInputType.name),
             const SizedBox(
               height: 16,
             ),
-            _itemTextArea(alamatController, "Alamat"),
+            _itemTextArea(alamatController, "Addres"),
             const SizedBox(
               height: 16,
             ),
@@ -44,7 +44,7 @@ class _InputPasienState extends State<InputPasien> {
               children: [
                 Flexible(
                     flex: 3,
-                    child: _itemText(tempatController, "Tempat Lahir",
+                    child: _itemText(tempatController, "Born Place",
                         TextInputType.streetAddress)),
                 const SizedBox(
                   width: 16,
@@ -52,14 +52,14 @@ class _InputPasienState extends State<InputPasien> {
                 Flexible(
                     flex: 2,
                     child: _itemText(
-                        tanggalController, "Tanggal", TextInputType.datetime)),
+                        tanggalController, "Date", TextInputType.datetime)),
                 const SizedBox(
                   width: 16,
                 ),
                 Flexible(
                     flex: 1,
                     child: _itemText(
-                        umurController, "Umur", TextInputType.number)),
+                        umurController, "Age", TextInputType.number)),
               ],
             ),
             const SizedBox(
@@ -87,7 +87,7 @@ class _InputPasienState extends State<InputPasien> {
               children: [
                 Flexible(
                   flex: 1,
-                  child: _itemText(hpController, "No. Hp", TextInputType.phone),
+                  child: _itemText(hpController, "Mobile Phone Number", TextInputType.phone),
                 ),
                 const SizedBox(
                   width: 16,

@@ -28,7 +28,7 @@ class _DashboardState extends State<Dashboard> {
       backgroundColor: background,
       appBar: AppBar(
         backgroundColor: greenland,
-        title: const Text("Ruang OT 01"),
+        title: const Text("OT Room 01"),
       ),
       drawer: SafeArea(
         child: Drawer(
@@ -65,53 +65,19 @@ class _DashboardState extends State<Dashboard> {
                     const SizedBox(
                       height: 16,
                     ),
-                    _tombolDrawer(
-                        Colors.blue, Icons.tv_rounded, "On/Off Smartboard"),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    _tombolDrawer(Colors.lime.shade600, Icons.light_rounded,
-                        "On/Off Pass Box"),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    _tombolDrawer(parameter1,
-                        Icons.door_front_door, "On/Off Pintu Besar"),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    _tombolDrawer(parameter3,
-                        Icons.door_back_door_rounded, "On/Off Pintu Kecil"),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    _tombolDrawer(parameter5,
-                        Icons.bolt_rounded, "On/Off Power Supply"),
-                    const Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: Divider(
-                        height: 30,
-                        thickness: 5,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    _itemDrawer("drawer1.png", "Setting Lampu", context),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    _itemDrawer("drawer2.png", "Setting Meja Operasi", context),
-                    const SizedBox(
-                      height: 16,
-                    ),
                     _itemDrawer("drawer4.png", "Input X-ray", context),
                     const SizedBox(
                       height: 16,
                     ),
-                    _itemDrawer("drawer3.png", "Input Informasi Pasien", context),
+                    _itemDrawer("drawer3.png", "Input Patient Information", context),
                     const SizedBox(
                       height: 16,
                     ),
-                    _itemDrawer("drawer5.png", "Input Rekam Medis", context),
+                    _itemDrawer("drawer5.png", "Input Medical Record", context),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    _itemDrawer("drawer6.png", "Input Resume", context),
                   ],
                 ),
               )
@@ -198,7 +164,7 @@ class _DashboardState extends State<Dashboard> {
                                           child: const Padding(
                                             padding: EdgeInsets.all(5.0),
                                             child: Text(
-                                              "Waktu Mulai : ",
+                                              "Time Start : ",
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 12),
@@ -221,7 +187,7 @@ class _DashboardState extends State<Dashboard> {
                                           child: const Padding(
                                             padding: EdgeInsets.all(5.0),
                                             child: Text(
-                                              "Waktu Sekarang : ",
+                                              "Time Now : ",
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 12),
@@ -287,7 +253,7 @@ class _DashboardState extends State<Dashboard> {
                                         ),
                                         _itemMenu(
                                             "informasipasien.png",
-                                            "Informasi Pasien",
+                                            "Information",
                                             greenland,
                                             context),
                                         const SizedBox(
@@ -296,6 +262,14 @@ class _DashboardState extends State<Dashboard> {
                                         _itemMenu(
                                             "camera.png",
                                             "Teleconference",
+                                            greenland,
+                                            context),
+                                        const SizedBox(
+                                          width: 16,
+                                        ),
+                                        _itemMenu(
+                                            "mechanical-gears-.png",
+                                            "Control",
                                             greenland,
                                             context),
                                       ],
@@ -323,7 +297,7 @@ class _DashboardState extends State<Dashboard> {
                                                 SizedBox(
                                                   width: 8,
                                                 ),
-                                                Text("Selesai Operasi")
+                                                Text("Finish Surgical")
                                               ],
                                             )),
                                       ))
@@ -359,7 +333,7 @@ class _DashboardState extends State<Dashboard> {
                             ),
                             const Expanded(
                               child: Text(
-                                "Pasien Monitor",
+                                "Patient Monitor",
                                 style: TextStyle(
                                     fontSize: 24, fontWeight: FontWeight.bold),
                               ),
@@ -394,12 +368,12 @@ class _DashboardState extends State<Dashboard> {
                                   Row(
                                     children: [
                                       _itemPasien(parameter3, "Resp",
-                                          "breath-in.png", "60 bpm"),
+                                          "breath-in.png", "60 rpm"),
                                       const SizedBox(
                                         width: 8,
                                       ),
                                       _itemPasien(parameter4, "Source",
-                                          "plus.png", "60 bpm")
+                                          "plus.png", "60 %")
                                     ],
                                   ),
                                   const SizedBox(
@@ -408,12 +382,12 @@ class _DashboardState extends State<Dashboard> {
                                   Row(
                                     children: [
                                       _itemPasien(parameter5, "Temp1",
-                                          "thermometer.png", "60 bpm"),
+                                          "thermometer.png", "31 °C"),
                                       const SizedBox(
                                         width: 8,
                                       ),
                                       _itemPasien(parameter6, "Art",
-                                          "bloodpress.png", "60 bpm")
+                                          "bloodpress.png", "120/80 mmhg")
                                     ],
                                   ),
                                   const SizedBox(
@@ -422,7 +396,7 @@ class _DashboardState extends State<Dashboard> {
                                   Row(
                                     children: [
                                       _itemPasien(parameter5, "Temp2",
-                                          "thermometer.png", "60 bpm"),
+                                          "thermometer.png", "31 °C"),
                                       const SizedBox(
                                         width: 8,
                                       ),
@@ -665,6 +639,9 @@ Widget _itemMenu(
         if (menu == "Teleconference") {
           context.goNamed("view_teleconference");
         }
+        if (menu == "Control") {
+          context.goNamed("control");
+        }
       },
       child: Container(
         height: double.infinity,
@@ -700,23 +677,17 @@ Widget _itemDrawer(String gambar, String judul, BuildContext context) {
     padding: const EdgeInsets.symmetric(horizontal: 16),
     child: InkWell(
       onTap: () {
-        if (judul == "Setting Lampu") {
-          context.goNamed("setting_lampu");
-        }
-        if (judul == "Setting Lampu") {
-          context.goNamed("setting_lampu");
-        }
-        if (judul == "Setting Meja Operasi") {
-          context.goNamed("setting_meja");
-        }
-        if (judul == "Input Informasi Pasien") {
+        if (judul == "Input Patient Information") {
           context.goNamed("input_pasien");
         }
-        if (judul == "Input Rekam Medis") {
+        if (judul == "Input Medical Record") {
           context.goNamed("input_medis");
         }
         if (judul == "Input X-ray") {
           context.goNamed("input_xray");
+        }
+        if (judul == "Input Resume") {
+          context.goNamed("input_resume");
         }
       },
       child: Row(

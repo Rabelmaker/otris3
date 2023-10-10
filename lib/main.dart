@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:otris2/screens/control_otris.dart';
 import 'package:otris2/screens/dashboard.dart';
 import 'package:otris2/screens/input_medis.dart';
 import 'package:otris2/screens/input_pasien.dart';
+import 'package:otris2/screens/input_resume.dart';
 import 'package:otris2/screens/input_xray.dart';
 import 'package:otris2/screens/list_room.dart';
 import 'package:otris2/screens/login.dart';
@@ -81,6 +83,18 @@ final GoRouter _router = GoRouter(
                 name: 'view_pasien',
                 builder: (BuildContext context, GoRouterState state) {
                   return const ViewPasien();
+                }),
+            GoRoute(
+                path: 'control',
+                name: 'control',
+                builder: (BuildContext context, GoRouterState state) {
+                  return const ControlOtris();
+                }),
+            GoRoute(
+                path: 'input_resume',
+                name: 'input_resume',
+                builder: (BuildContext context, GoRouterState state) {
+                  return const InputResume();
                 }),
           ],
         )

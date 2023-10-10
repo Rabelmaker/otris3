@@ -48,7 +48,7 @@ class _InputXrayState extends State<InputXray> {
                       height: 16,
                     ),
                     const Text(
-                      "Pilih Gambar",
+                      "Choose Image",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 24
@@ -67,7 +67,7 @@ class _InputXrayState extends State<InputXray> {
             const SizedBox(
               height: 32,
             ),
-            _itemText(namaController, "Nama Gambar"),
+            _itemText(namaController, "Image Name"),
             const SizedBox(
               height: 32,
             ),

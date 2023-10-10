@@ -21,14 +21,14 @@ class _InputMedisState extends State<InputMedis> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: greenland,
-        title: const Text("Input Rekam Medis"),
+        title: const Text("Input Medical Record"),
       ),
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(32.0),
         child: ListView(
           children: [
-            _itemText(pjController, "Penanggung Jawab"),
+            _itemText(pjController, "Responsible Person"),
             SizedBox(
               height: 16,
             ),
@@ -36,12 +36,12 @@ class _InputMedisState extends State<InputMedis> {
               children: [
                 Flexible(
                     flex: 1,
-                    child: _itemTextArea(diagnosaController, "Diagnosa")),
+                    child: _itemTextArea(diagnosaController, "Diagnosis")),
                 SizedBox(
                   width: 16,
                 ),
                 Flexible(
-                    flex: 1, child: _itemTextArea(alergiController, "Alergi")),
+                    flex: 1, child: _itemTextArea(alergiController, "Allergy")),
               ],
             ),
             SizedBox(
@@ -51,12 +51,12 @@ class _InputMedisState extends State<InputMedis> {
               children: [
                 Flexible(
                   flex: 1,
-                  child: _itemTextArea(tindakanController, "Tindakan"),
+                  child: _itemTextArea(tindakanController, "Action"),
                 ),
                 SizedBox(
                   width: 16,
                 ),
-                Flexible(flex: 1, child: _itemTextArea(obatController, "Obat")),
+                Flexible(flex: 1, child: _itemTextArea(obatController, "Medicine")),
               ],
             ),
             SizedBox(
