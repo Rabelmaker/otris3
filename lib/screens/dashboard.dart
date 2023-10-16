@@ -630,11 +630,8 @@ Widget _itemMenu(
         if (menu == "X-ray Viewer") {
           context.goNamed("view_xray");
         }
-        if (menu == "Informasi Pasien") {
+        if (menu == "Information") {
           context.goNamed("view_pasien");
-        }
-        if (menu == "Rekam Medis") {
-          context.goNamed("view_medis");
         }
         if (menu == "Teleconference") {
           context.goNamed("view_teleconference");
